@@ -5,378 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>[Practice Name] — About</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --iris: #7F77DD;
-      --iris-light: #EEEDFE;
-      --iris-mid: #534AB7;
-      --iris-dark: #3C3489;
-      --sage: #1D9E75;
-      --sage-light: #E1F5EE;
-      --text: #2C2C2A;
-      --text-soft: #5F5E5A;
-      --text-hint: #888780;
-      --surface: #FAFAF9;
-      --border: rgba(44,44,42,0.12);
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 16px;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      color: var(--text);
-      background: var(--surface);
-      line-height: 1.7;
-    }
-
-    /* ── NAV ── */
-    nav {
-      background: #ffffff;
-      height: 64px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 0.5px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2rem;
-    }
-    .nav-logo {
-      color: var(--iris-mid);
-      font-weight: 600;
-      font-size: 16px;
-      text-decoration: none;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      list-style: none;
-    }
-    .nav-link {
-      padding: 8px 14px;
-      font-size: 14px;
-      color: var(--text-soft);
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      transition: background 0.15s, color 0.15s;
-    }
-    .nav-link:hover,
-    .nav-link.active {
-      background: var(--iris-light);
-      color: var(--iris-mid);
-    }
-    .nav-cta {
-      background: var(--iris);
-      color: #ffffff;
-      padding: 8px 18px;
-      border-radius: var(--radius-sm);
-      font-size: 14px;
-      font-weight: 500;
-      text-decoration: none;
-      margin-left: 8px;
-      transition: background 0.15s;
-    }
-    .nav-cta:hover { background: var(--iris-mid); }
-
-    /* ── SECTIONS ── */
-    .section {
-      padding: 4rem 2rem;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-    .section-label {
-      font-size: 12px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--iris);
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-    }
-    .section-title {
-      font-size: clamp(20px, 3vw, 28px);
-      font-weight: 600;
-      letter-spacing: -0.3px;
-      margin-bottom: 1rem;
-    }
-    .section-intro {
-      font-size: 16px;
-      color: var(--text-soft);
-      margin-bottom: 2.5rem;
-    }
-
-    /* ── DIVIDER ── */
-    .divider {
-      border: none;
-      border-top: 0.5px solid var(--border);
-      margin: 0;
-    }
-
-    /* ── BIO BLOCK ── */
-    .bio-block {
-      background: #ffffff;
-      border: 0.5px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      display: grid;
-      grid-template-columns: 100px 1fr;
-      gap: 1.5rem;
-    }
-    .bio-avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: var(--iris-light);
-      color: var(--iris-mid);
-      font-size: 28px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .bio-name {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-    .bio-cred {
-      font-size: 13px;
-      color: var(--iris);
-      font-weight: 500;
-      margin-bottom: 2px;
-    }
-    .bio-title {
-      font-size: 13px;
-      color: var(--text-hint);
-      margin-bottom: 1rem;
-    }
-    .bio-body {
-      font-size: 14px;
-      color: var(--text-soft);
-      line-height: 1.7;
-    }
-    .bio-body p + p { margin-top: 0.75rem; }
-    .bio-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 1rem;
-    }
-    .bio-tag {
-      background: var(--iris-light);
-      color: var(--iris-mid);
-      font-size: 12px;
-      padding: 4px 10px;
-      border-radius: 20px;
-    }
-
-    /* ── ORIENTATION BLOCK ── */
-    .orientation-block {
-      background: var(--iris-light);
-      border: 0.5px solid rgba(127,119,221,0.25);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem 2rem;
-      margin-top: 1.5rem;
-    }
-    .orientation-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--iris-mid);
-      margin-bottom: 0.5rem;
-    }
-    .orientation-body {
-      font-size: 14px;
-      color: var(--text-soft);
-      line-height: 1.7;
-    }
-
-    /* ── VALUES GRID ── */
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
-      margin-top: 1.5rem;
-    }
-    .value-card {
-      background: #ffffff;
-      border-right: 0.5px solid var(--border);
-      border-top: 0.5px solid var(--border);
-      border-bottom: 0.5px solid var(--border);
-      border-left: 3px solid var(--iris);
-      border-radius: 0 var(--radius-md) var(--radius-md) 0;
-      padding: 1rem 1.25rem;
-    }
-    .value-title {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-    .value-body {
-      font-size: 13px;
-      color: var(--text-soft);
-      line-height: 1.6;
-    }
-
-    /* ── EDUCATION LIST ── */
-    .edu-list {
-      list-style: none;
-      margin-top: 1rem;
-    }
-    .edu-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      padding: 0.6rem 0;
-      border-bottom: 0.5px solid var(--border);
-      font-size: 14px;
-      color: var(--text-soft);
-    }
-    .edu-row:last-child { border-bottom: none; }
-    .edu-row .ti {
-      color: var(--iris);
-      font-size: 18px;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .edu-row strong {
-      display: block;
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    /* ── CTA BAR ── */
-    .cta-bar {
-      background: var(--iris-mid);
-      color: #ffffff;
-      padding: 3.5rem 2rem;
-      text-align: center;
-    }
-    .gs-title {
-      font-size: clamp(20px, 3vw, 26px);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    .gs-sub {
-      font-size: 15px;
-      opacity: 0.85;
-      margin-bottom: 1.5rem;
-    }
-    .btn-primary {
-      display: inline-block;
-      background: var(--iris);
-      color: #ffffff;
-      padding: 12px 24px;
-      border-radius: var(--radius-sm);
-      font-size: 15px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: background 0.15s;
-    }
-    .btn-primary:hover { background: var(--iris-dark); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #26215C;
-      color: rgba(255,255,255,0.7);
-      padding: 3rem 2rem 1.5rem;
-    }
-    .footer-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2.5rem;
-      padding-bottom: 2rem;
-    }
-    .footer-brand {
-      color: #ffffff;
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    .footer-heading {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 0.75rem;
-    }
-    .footer-item {
-      font-size: 13px;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      margin-bottom: 0.5rem;
-      text-decoration: none;
-      color: rgba(255,255,255,0.7);
-    }
-    .footer-item .ti {
-      color: rgba(255,255,255,0.35);
-      font-size: 16px;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .footer-item a { color: rgba(255,255,255,0.7); text-decoration: none; }
-    .footer-item a:hover { color: #ffffff; }
-    .footer-bottom {
-      max-width: 860px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12px;
-      border-top: 0.5px solid rgba(255,255,255,0.1);
-      padding-top: 1.25rem;
-      color: rgba(255,255,255,0.4);
-    }
-    .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
-    .footer-bottom a:hover { color: rgba(255,255,255,0.7); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 620px) {
-      .bio-block { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<!-- ════════════ NAV ════════════ -->
-<nav>
+<!-- NAV -->
+<nav class="nav">
   <a href="index.html" class="nav-logo">[Practice Name]</a>
   <ul class="nav-links">
-    <li><a href="index.html" class="nav-link">Home</a></li>
-    <li><a href="about.html" class="nav-link active">About</a></li>
-    <li><a href="services.html" class="nav-link">Services</a></li>
-    <li><a href="forms.html" class="nav-link">Forms</a></li>
-    <li><a href="contact.html" class="nav-link">Contact</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="forms.html">Forms</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
   <a href="contact.html" class="nav-cta">Get started</a>
 </nav>
 
-<!-- ════════════ PAGE INTRO ════════════ -->
-<div class="section" style="padding-bottom: 0;">
+<!-- COUNSELOR BIO -->
+<div class="section">
   <div class="section-label">Your therapist</div>
-  <div class="section-title">About the practice</div>
-</div>
+  <h1 class="section-title">About the practice</h1>
+  <p class="section-intro">[One sentence about the practice's mission — e.g., "Founded on the belief that every person deserves a space to be fully heard, [Practice Name] offers compassionate, evidence-based counseling for adults."]</p>
 
-<!-- ════════════ BIO + ORIENTATION ════════════ -->
-<div class="section" style="padding-top: 1.5rem;">
   <div class="bio-block">
     <div class="bio-avatar">[IN]</div>
     <div>
       <div class="bio-name">[Counselor Full Name, Credentials]</div>
-      <div class="bio-cred">[License Type] · [Cert]</div>
-      <div class="bio-title">Individual therapy for adults · Telehealth &amp; in-person</div>
+      <div class="bio-cred">[License Type, e.g., Licensed Professional Counselor] &nbsp;·&nbsp; [Certification]</div>
+      <div class="bio-title">Individual therapy for adults &nbsp;·&nbsp; Telehealth &amp; in-person</div>
       <div class="bio-body">
-        <p>[Paragraph one placeholder — describe your background, how many years of experience you have, the populations you work with, and what drew you to this field. This is a good place to mention relevant training, prior roles, or the communities you are most passionate about serving.]</p>
-        <p>[Paragraph two placeholder — share your philosophy of care and how you approach the therapeutic relationship. Describe what a client can expect in the room with you: your warmth, your style, the balance of structure and flexibility you bring. Help the reader feel what working with you would be like.]</p>
+        <p>[Counselor name] is a licensed [credential] with [X] years of experience working with adults navigating anxiety, depression, grief, and significant life transitions. [He/She/They] earned a [Degree] in [Program] from [University Name] and completed supervised clinical hours at [Practicum Site].</p>
+        <br/>
+        <p>[Counselor name]'s work is relational at its core — built on the belief that a safe, non-judgmental therapeutic relationship is the foundation from which all meaningful change grows. Sessions are collaborative, with room to go slowly and room to go deep, depending on what you need in any given week.</p>
       </div>
       <div class="bio-tags">
         <span class="bio-tag">[Specialty 1]</span>
@@ -384,138 +44,92 @@
         <span class="bio-tag">[Specialty 3]</span>
         <span class="bio-tag">[Specialty 4]</span>
         <span class="bio-tag">[Specialty 5]</span>
-        <span class="bio-tag">[Specialty 6]</span>
+        <span class="bio-tag">LGBTQ+ affirming</span>
       </div>
     </div>
   </div>
 
   <div class="orientation-block">
     <div class="orientation-title">Clinical orientation</div>
-    <div class="orientation-body">[Describe your theoretical approach in plain language here — for example, whether you draw on cognitive-behavioral, psychodynamic, humanistic, somatic, or integrative frameworks. Explain what that means in practice and why you find it effective. Clients benefit from understanding how you think about change and healing before they ever walk in the door.]</div>
+    <div class="orientation-body">[Describe your theoretical foundation in plain language — e.g., "My clinical orientation is primarily humanistic and existential, drawing on CBT techniques for structured skill-building. The work tends to focus on the meaning people make of their experiences, with an emphasis on self-compassion and identity." This is a great place to give prospective clients a sense of what sessions actually feel like, not just modality names.]</div>
   </div>
 </div>
 
 <hr class="divider" />
 
-<!-- ════════════ PRACTICE VALUES ════════════ -->
+<!-- EDUCATION -->
 <div class="section">
-  <div class="section-label">How we work</div>
-  <div class="section-title">Practice values</div>
-  <div class="section-intro">These principles shape every session and every interaction — from the first inquiry to the last goodbye.</div>
+  <div class="section-label">Credentials</div>
+  <h2 class="section-title">Education &amp; training</h2>
+  <div class="edu-list">
+    <div class="edu-row"><i class="ti ti-school"></i>[Degree, e.g., Master of Science in Clinical Mental Health Counseling] — [University Name], [Year]</div>
+    <div class="edu-row"><i class="ti ti-school"></i>[Undergraduate Degree] — [University Name], [Year]</div>
+    <div class="edu-row"><i class="ti ti-license"></i>[State] Licensed Professional Counselor (LPC) — License #[XXXXXX]</div>
+    <div class="edu-row"><i class="ti ti-certificate"></i>[Certification, e.g., National Certified Counselor (NCC)]</div>
+    <div class="edu-row"><i class="ti ti-certificate"></i>[Additional training or certification placeholder]</div>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- VALUES -->
+<div class="section">
+  <div class="section-label">Practice values</div>
+  <h2 class="section-title">What guides the work</h2>
   <div class="values-grid">
     <div class="value-card">
-      <div class="value-title">No judgment ever</div>
-      <div class="value-body">[Placeholder — describe your commitment to creating a non-judgmental space. What does that mean in practice? How do you hold space for the full range of human experience without agenda or shame?]</div>
+      <div class="value-title">No judgment, ever</div>
+      <div class="value-body">Whatever brings you here, it belongs in the room. This is a space without shame or unsolicited advice.</div>
     </div>
     <div class="value-card">
       <div class="value-title">Your pace</div>
-      <div class="value-body">[Placeholder — explain how you follow the client's lead, honor their readiness, and never push harder than feels right. Therapy unfolds at the speed of trust.]</div>
+      <div class="value-body">Progress isn't linear, and therapy shouldn't be rushed. We go at the speed that feels safe and useful.</div>
     </div>
     <div class="value-card">
       <div class="value-title">Affirmation &amp; inclusion</div>
-      <div class="value-body">[Placeholder — speak to your commitment to affirming identities, cultures, and lived experiences. Who is explicitly welcome here? How do you continue to grow in cultural humility?]</div>
+      <div class="value-body">This practice is explicitly affirming of all gender identities, sexual orientations, and cultural backgrounds.</div>
     </div>
     <div class="value-card">
       <div class="value-title">Practical + reflective</div>
-      <div class="value-body">[Placeholder — describe how you balance insight and action. You offer both a space for reflection and concrete tools clients can use between sessions.]</div>
+      <div class="value-body">Some sessions explore; some build skills. Most do both. The work adapts to what's most useful right now.</div>
     </div>
   </div>
 </div>
 
-<hr class="divider" />
-
-<!-- ════════════ EDUCATION & TRAINING ════════════ -->
-<div class="section">
-  <div class="section-label">Credentials</div>
-  <div class="section-title">Education &amp; Training</div>
-  <ul class="edu-list">
-    <li class="edu-row">
-      <i class="ti ti-school"></i>
-      <div>
-        <strong>[Degree — e.g., Master of Arts in Counseling Psychology]</strong>
-        [University Name Placeholder] · [Year]
-      </div>
-    </li>
-    <li class="edu-row">
-      <i class="ti ti-school"></i>
-      <div>
-        <strong>[Degree — e.g., Bachelor of Science in Psychology]</strong>
-        [University Name Placeholder] · [Year]
-      </div>
-    </li>
-    <li class="edu-row">
-      <i class="ti ti-license"></i>
-      <div>
-        <strong>[Licensure — e.g., Licensed Professional Counselor (LPC), [State]]</strong>
-        License # [000000] · Expires [MM/YYYY]
-      </div>
-    </li>
-    <li class="edu-row">
-      <i class="ti ti-certificate"></i>
-      <div>
-        <strong>[Certification — e.g., EMDR Basic Training]</strong>
-        [Certifying Body Placeholder] · [Year]
-      </div>
-    </li>
-    <li class="edu-row">
-      <i class="ti ti-certificate"></i>
-      <div>
-        <strong>[Certification or Continuing Education Placeholder]</strong>
-        [Sponsor or Institution Placeholder] · [Year]
-      </div>
-    </li>
-  </ul>
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Ready to take the first step?</h2>
+  <p>Reach out to schedule a free 15-minute consultation — no commitment required.</p>
+  <a href="contact.html" class="btn-primary">Get in touch</a>
 </div>
 
-<!-- ════════════ CTA BAR ════════════ -->
-<div class="cta-bar">
-  <div class="gs-title">Ready to take the first step?</div>
-  <div class="gs-sub">Reaching out takes courage. A brief consultation is free and there is no obligation.</div>
-  <a href="contact.html" class="btn-primary">Get started</a>
-</div>
-
-<!-- ════════════ FOOTER ════════════ -->
-<footer>
+<!-- FOOTER -->
+<footer class="footer">
   <div class="footer-inner">
     <div>
       <div class="footer-brand">[Practice Name]</div>
-      <div style="font-size:13px;margin-bottom:1rem;">[Brief practice tagline placeholder — one sentence describing your mission or approach.]</div>
-      <div class="footer-item">
-        <i class="ti ti-map-pin"></i>
-        <span>[Street Address]<br />[City, State ZIP]</span>
-      </div>
+      <div class="footer-tagline">Individual therapy for adults — in person and via telehealth throughout [State].</div>
     </div>
     <div>
-      <div class="footer-heading">Contact</div>
-      <div class="footer-item">
-        <i class="ti ti-phone"></i>
-        <a href="tel:+10000000000">(000) 000-0000</a>
-      </div>
-      <div class="footer-item">
-        <i class="ti ti-device-fax"></i>
-        <span>Fax: (000) 000-0001</span>
-      </div>
-      <div class="footer-item">
-        <i class="ti ti-mail"></i>
-        <a href="mailto:hello@[practicedomain].com">hello@[practicedomain].com</a>
-      </div>
-      <div class="footer-item">
-        <i class="ti ti-clock"></i>
-        <span>[Office Hours Placeholder]</span>
-      </div>
+      <div class="footer-heading">Office</div>
+      <div class="footer-item"><i class="ti ti-map-pin"></i>[Street Address], [City, State ZIP]</div>
+      <div class="footer-item"><i class="ti ti-phone"></i>(000) 000-0000</div>
+      <div class="footer-item"><i class="ti ti-printer"></i>Fax: (000) 000-0001</div>
+      <div class="footer-item"><i class="ti ti-mail"></i>[email@domain.com]</div>
     </div>
     <div>
-      <div class="footer-heading">Quick links</div>
-      <div class="footer-item"><i class="ti ti-chevron-right"></i><a href="index.html">Home</a></div>
-      <div class="footer-item"><i class="ti ti-chevron-right"></i><a href="about.html">About</a></div>
-      <div class="footer-item"><i class="ti ti-chevron-right"></i><a href="services.html">Services</a></div>
-      <div class="footer-item"><i class="ti ti-chevron-right"></i><a href="forms.html">Client Forms</a></div>
-      <div class="footer-item"><i class="ti ti-chevron-right"></i><a href="contact.html">Contact</a></div>
+      <div class="footer-heading">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="forms.html">Forms &amp; Paperwork</a></li>
+        <li><a href="contact.html">Contact &amp; Fees</a></li>
+      </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>&copy; 2026 [Practice Name]. All rights reserved.</span>
-    <a href="privacy.html">Privacy Policy</a>
+    <span>&copy; 2026 [Practice Name] &nbsp;·&nbsp; All rights reserved</span>
+    <span>If you are in crisis, call or text <strong>988</strong></span>
   </div>
 </footer>
 

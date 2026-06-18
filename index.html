@@ -5,558 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>[Practice Name] — Mental Health Counseling</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --iris:        #7F77DD;
-      --iris-light:  #EEEDFE;
-      --iris-mid:    #534AB7;
-      --iris-dark:   #3C3489;
-      --sage:        #1D9E75;
-      --sage-light:  #E1F5EE;
-      --text:        #2C2C2A;
-      --text-soft:   #5F5E5A;
-      --text-hint:   #888780;
-      --surface:     #FAFAF9;
-      --border:      rgba(44,44,42,0.12);
-      --radius-sm:   8px;
-      --radius-md:   12px;
-      --radius-lg:   16px;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: var(--surface);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    /* ── NAV ── */
-    nav {
-      background: #ffffff;
-      height: 64px;
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 0.5px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .nav-brand {
-      color: var(--iris-mid);
-      font-size: 1.1rem;
-      font-weight: 700;
-      text-decoration: none;
-      letter-spacing: -0.01em;
-    }
-    .nav-brand span {
-      color: var(--text-soft);
-      font-weight: 400;
-    }
-    .nav-links {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-    .nav-links a {
-      display: inline-block;
-      text-decoration: none;
-      color: var(--text-soft);
-      font-size: 0.9rem;
-      font-weight: 500;
-      padding: 0.4rem 0.85rem;
-      border-radius: var(--radius-sm);
-      transition: background 0.15s, color 0.15s;
-    }
-    .nav-links a:hover {
-      background: var(--iris-light);
-      color: var(--iris-mid);
-    }
-    .nav-links a.active {
-      background: var(--iris-light);
-      color: var(--iris-mid);
-    }
-    .nav-cta {
-      display: inline-block;
-      text-decoration: none;
-      background: var(--iris);
-      color: #ffffff;
-      font-size: 0.875rem;
-      font-weight: 600;
-      padding: 0.45rem 1.1rem;
-      border-radius: var(--radius-sm);
-      margin-left: 0.75rem;
-      transition: background 0.15s;
-    }
-    .nav-cta:hover { background: var(--iris-mid); }
-
-    /* ── HERO ── */
-    .page-hero {
-      background: #ffffff;
-      border-bottom: 0.5px solid var(--border);
-      text-align: center;
-      padding: 5rem 2rem 4rem;
-    }
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--iris-mid);
-      background: var(--iris-light);
-      padding: 0.3rem 0.85rem;
-      border-radius: 99px;
-      margin-bottom: 1.25rem;
-    }
-    .page-hero h1 {
-      font-size: 2.6rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.2;
-      max-width: 680px;
-      margin: 0 auto 1rem;
-      letter-spacing: -0.02em;
-    }
-    .page-hero p {
-      font-size: 1.05rem;
-      color: var(--text-soft);
-      max-width: 560px;
-      margin: 0 auto 2rem;
-      line-height: 1.7;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 0.75rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* ── BUTTONS ── */
-    .btn-primary {
-      display: inline-block;
-      text-decoration: none;
-      background: var(--iris);
-      color: #ffffff;
-      font-size: 0.925rem;
-      font-weight: 600;
-      padding: 0.65rem 1.5rem;
-      border-radius: var(--radius-sm);
-      transition: background 0.15s;
-    }
-    .btn-primary:hover { background: var(--iris-mid); }
-    .btn-outline {
-      display: inline-block;
-      text-decoration: none;
-      background: transparent;
-      color: var(--iris-mid);
-      font-size: 0.925rem;
-      font-weight: 600;
-      padding: 0.65rem 1.5rem;
-      border-radius: var(--radius-sm);
-      border: 1.5px solid var(--iris-mid);
-      transition: background 0.15s, color 0.15s;
-    }
-    .btn-outline:hover { background: var(--iris-light); }
-
-    /* ── SECTION LAYOUT ── */
-    .section {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-    }
-    .section-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--iris-mid);
-      margin-bottom: 0.5rem;
-    }
-    .section h2 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.015em;
-    }
-    .section-intro {
-      font-size: 0.975rem;
-      color: var(--text-soft);
-      max-width: 600px;
-      margin-bottom: 2.25rem;
-      line-height: 1.7;
-    }
-
-    /* ── APPROACH CARDS ── */
-    .approach-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-    .approach-card {
-      background: #ffffff;
-      border: 0.5px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem;
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-    .approach-icon {
-      flex-shrink: 0;
-      width: 38px;
-      height: 38px;
-      border-radius: var(--radius-sm);
-      background: var(--iris-light);
-      color: var(--iris-mid);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-    }
-    .approach-body { flex: 1; }
-    .approach-name {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.3rem;
-    }
-    .approach-desc {
-      font-size: 0.875rem;
-      color: var(--text-soft);
-      line-height: 1.65;
-    }
-
-    /* ── DIVIDER ── */
-    .section-divider {
-      max-width: 860px;
-      margin: 0 auto;
-      border: none;
-      border-top: 0.5px solid var(--border);
-    }
-
-    /* ── CTA SECTION ── */
-    .cta-section { padding: 4rem 2rem; }
-    .cta-block {
-      background: var(--iris-mid);
-      border-radius: var(--radius-lg);
-      text-align: center;
-      padding: 3rem 2rem;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-    .cta-block h2 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 0.65rem;
-      letter-spacing: -0.015em;
-    }
-    .cta-block p {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.82);
-      margin-bottom: 1.75rem;
-      line-height: 1.65;
-    }
-    .cta-block .btn-primary {
-      background: #ffffff;
-      color: var(--iris-mid);
-    }
-    .cta-block .btn-primary:hover { background: var(--iris-light); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #26215C;
-      color: rgba(255,255,255,0.72);
-      padding: 3rem 2rem 0;
-      margin-top: 1rem;
-    }
-    .footer-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 2.5rem;
-      padding-bottom: 2.5rem;
-    }
-    .footer-brand-name {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 0.35rem;
-    }
-    .footer-tagline {
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.5;
-    }
-    .footer-col h4 {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 0.9rem;
-    }
-    .footer-col ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .footer-col ul li {
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.72);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .footer-col ul li i {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.4);
-      flex-shrink: 0;
-    }
-    .footer-col ul li a {
-      color: rgba(255,255,255,0.72);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-    .footer-col ul li a:hover { color: #ffffff; }
-    .footer-bottom {
-      max-width: 860px;
-      margin: 0 auto;
-      border-top: 0.5px solid rgba(255,255,255,0.12);
-      padding: 1.25rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .footer-copy {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-    }
-    .footer-crisis {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.55);
-    }
-    .footer-crisis strong { color: rgba(255,255,255,0.8); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 700px) {
-      .page-hero h1 { font-size: 1.9rem; }
-      .approach-grid { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; gap: 1.75rem; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; }
-    }
-    @media (max-width: 520px) {
-      nav { padding: 0 1rem; }
-      .nav-links { gap: 0; }
-      .nav-links a { padding: 0.4rem 0.55rem; font-size: 0.83rem; }
-      .nav-cta { display: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<!-- ════════════ NAV ════════════ -->
-<nav>
-  <a href="index.html" class="nav-brand">[Practice Name] <span>Counseling</span></a>
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">[Practice Name]</a>
   <ul class="nav-links">
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="forms.html">Forms</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="contact.html" class="nav-cta">Book a consult</a>
+  <a href="contact.html" class="nav-cta">Get started</a>
 </nav>
 
-<!-- ════════════ HERO ════════════ -->
+<!-- HERO -->
 <div class="page-hero">
   <div class="hero-eyebrow">Mental Health Counseling</div>
   <h1>A safe space to heal, grow, and find your footing</h1>
-  <p>
-    [Brief sub-copy placeholder — e.g., "Compassionate, evidence-based support tailored to you.
-    Wherever you are on your journey, you don't have to walk it alone."]
-  </p>
+  <p>Individual therapy for adults navigating anxiety, depression, life transitions, and relationship challenges.</p>
   <div class="hero-actions">
     <a href="contact.html" class="btn-primary">Book a free consultation</a>
-    <a href="about.html" class="btn-outline">Learn about our approach</a>
+    <a href="about.html" class="btn-outline">Meet your therapist</a>
   </div>
 </div>
 
-<!-- ════════════ HOW WE WORK ════════════ -->
+<!-- HOW WE WORK -->
 <div class="section">
-  <div class="section-label">Our Approach</div>
-  <h2>How we work</h2>
-  <p class="section-intro">
-    [Placeholder — e.g., "Every session is guided by evidence-based methods and shaped around
-    your unique needs. Here are the core frameworks we draw from."]
-  </p>
+  <div class="section-label">How we work</div>
+  <h2 class="section-title">Therapy grounded in evidence and relationship</h2>
+  <p class="section-intro">Our approach draws from several established modalities, always adapted to what you need most. No two people are the same — neither are two therapy journeys.</p>
   <div class="approach-grid">
-
     <div class="approach-card">
       <div class="approach-icon"><i class="ti ti-brain"></i></div>
-      <div class="approach-body">
-        <div class="approach-name">Cognitive Behavioral</div>
-        <p class="approach-desc">
-          [Placeholder — e.g., "Identify and reshape thought patterns that drive distress,
-          replacing them with more balanced, helpful perspectives."]
-        </p>
-      </div>
+      <div class="approach-name">Cognitive Behavioral</div>
+      <div class="approach-desc">Identifying thought patterns that shape how you feel and behave — then building practical tools to shift them.</div>
     </div>
-
     <div class="approach-card">
       <div class="approach-icon"><i class="ti ti-heart"></i></div>
-      <div class="approach-body">
-        <div class="approach-name">Person-Centered</div>
-        <p class="approach-desc">
-          [Placeholder — e.g., "You are the expert on your own life. We provide unconditional
-          positive regard, empathy, and a genuinely collaborative space."]
-        </p>
-      </div>
+      <div class="approach-name">Person-Centered</div>
+      <div class="approach-desc">You're the expert on your life. Our role is to create the conditions for growth, not to direct the path.</div>
     </div>
-
     <div class="approach-card">
       <div class="approach-icon"><i class="ti ti-anchor"></i></div>
-      <div class="approach-body">
-        <div class="approach-name">Mindfulness-Based</div>
-        <p class="approach-desc">
-          [Placeholder — e.g., "Cultivate present-moment awareness to reduce rumination,
-          manage stress, and build a steadier relationship with your inner experience."]
-        </p>
-      </div>
+      <div class="approach-name">Mindfulness-Based</div>
+      <div class="approach-desc">Developing present-moment awareness and self-compassion as a foundation for lasting change.</div>
     </div>
-
     <div class="approach-card">
       <div class="approach-icon"><i class="ti ti-timeline"></i></div>
-      <div class="approach-body">
-        <div class="approach-name">Trauma-Informed</div>
-        <p class="approach-desc">
-          [Placeholder — e.g., "Safety, trust, and empowerment are central. We move at your
-          pace and honor the impact of past experiences on present life."]
-        </p>
-      </div>
+      <div class="approach-name">Trauma-Informed</div>
+      <div class="approach-desc">All work is guided by an understanding of how past experiences live in the body and shape the present.</div>
     </div>
-
   </div>
 </div>
 
-<hr class="section-divider" />
+<hr class="divider" />
 
-<!-- ════════════ WHO WE WORK WITH ════════════ -->
+<!-- WHO WE WORK WITH -->
 <div class="section">
-  <div class="section-label">Areas of Support</div>
-  <h2>Who we work with</h2>
-  <p class="section-intro">
-    [Placeholder — e.g., "We support adults navigating a range of challenges. If you don't
-    see your concern listed, reach out — we're happy to talk through whether we're a good fit."]
-  </p>
+  <div class="section-label">Who we work with</div>
+  <h2 class="section-title">You might be a good fit if you're dealing with…</h2>
   <div class="approach-grid">
-
     <div class="approach-card">
-      <div class="approach-body">
-        <div class="approach-name">Anxiety &amp; Stress</div>
-        <p class="approach-desc">
-          [Placeholder — e.g., "Quiet an overactive mind, manage worry, and reclaim a sense
-          of calm in your daily life with practical, evidence-based tools."]
-        </p>
-      </div>
+      <div class="approach-name">Anxiety &amp; Stress</div>
+      <div class="approach-desc">Persistent worry, panic, overwhelm, or burnout affecting your daily life and relationships.</div>
     </div>
-
     <div class="approach-card">
-      <div class="approach-body">
-        <div class="approach-name">Depression &amp; Mood</div>
-        <p class="approach-desc">
-          [Placeholder — e.g., "Find renewed energy and hope through a compassionate approach
-          that addresses the root causes of low mood and disconnection."]
-        </p>
-      </div>
+      <div class="approach-name">Depression &amp; Mood</div>
+      <div class="approach-desc">Low motivation, sadness, or a sense of disconnection from yourself or the people around you.</div>
     </div>
-
     <div class="approach-card">
-      <div class="approach-body">
-        <div class="approach-name">Life Transitions</div>
-        <p class="approach-desc">
-          [Placeholder — e.g., "Career changes, moves, relationship shifts — counseling helps
-          you navigate uncertainty with greater clarity and resilience."]
-        </p>
-      </div>
+      <div class="approach-name">Life Transitions</div>
+      <div class="approach-desc">Career shifts, relationship changes, loss, or any moment where identity feels uncertain or unmoored.</div>
     </div>
-
     <div class="approach-card">
-      <div class="approach-body">
-        <div class="approach-name">Relationship Patterns</div>
-        <p class="approach-desc">
-          [Placeholder — e.g., "Explore the dynamics shaping your connections and build more
-          fulfilling, authentic relationships — with others and yourself."]
-        </p>
-      </div>
+      <div class="approach-name">Relationship Patterns</div>
+      <div class="approach-desc">Communication struggles, boundary-setting, or repeating dynamics you'd like to understand and change.</div>
     </div>
-
   </div>
 </div>
 
-<hr class="section-divider" />
+<hr class="divider" />
 
-<!-- ════════════ CTA ════════════ -->
-<div class="cta-section">
-  <div class="cta-block">
-    <h2>Ready to take the first step?</h2>
-    <p>
-      Starting is simpler than it might feel. Book a free 15-minute consultation —
-      no commitment, just a warm conversation to see if we're a good fit.
-    </p>
-    <a href="contact.html" class="btn-primary">Book a free consultation</a>
-  </div>
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Ready to take the first step?</h2>
+  <p>Reach out to schedule a free 15-minute consultation — no commitment required.</p>
+  <a href="contact.html" class="btn-primary">Get in touch</a>
 </div>
 
-<!-- ════════════ FOOTER ════════════ -->
-<footer>
+<!-- FOOTER -->
+<footer class="footer">
   <div class="footer-inner">
-
-    <!-- Col 1: Brand -->
     <div>
-      <div class="footer-brand-name">[Practice Name]</div>
-      <p class="footer-tagline">
-        [Tagline placeholder — e.g., "Compassionate mental health counseling for individuals
-        seeking meaningful, lasting change."]
-      </p>
+      <div class="footer-brand">[Practice Name]</div>
+      <div class="footer-tagline">Individual therapy for adults — in person and via telehealth throughout [State].</div>
     </div>
-
-    <!-- Col 2: Office -->
-    <div class="footer-col">
-      <h4>Office</h4>
-      <ul>
-        <li><i class="ti ti-map-pin"></i>[Street Address], [City, State ZIP]</li>
-        <li><i class="ti ti-phone"></i><a href="tel:+10000000000">(000) 000-0000</a></li>
-        <li><i class="ti ti-printer"></i>Fax: (000) 000-0001</li>
-        <li><i class="ti ti-mail"></i><a href="mailto:hello@[practicedomain].com">hello@[practicedomain].com</a></li>
-      </ul>
+    <div>
+      <div class="footer-heading">Office</div>
+      <div class="footer-item"><i class="ti ti-map-pin"></i>[Street Address], [City, State ZIP]</div>
+      <div class="footer-item"><i class="ti ti-phone"></i>(000) 000-0000</div>
+      <div class="footer-item"><i class="ti ti-printer"></i>Fax: (000) 000-0001</div>
+      <div class="footer-item"><i class="ti ti-mail"></i>[email@domain.com]</div>
     </div>
-
-    <!-- Col 3: Quick Links -->
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul>
+    <div>
+      <div class="footer-heading">Quick Links</div>
+      <ul class="footer-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="forms.html">Forms</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="forms.html">Forms &amp; Paperwork</a></li>
+        <li><a href="contact.html">Contact &amp; Fees</a></li>
       </ul>
     </div>
-
   </div>
-
   <div class="footer-bottom">
-    <span class="footer-copy">&copy; 2026 [Practice Name]. All rights reserved.</span>
-    <span class="footer-crisis">If you're in crisis, call or text <strong>988</strong> (Suicide &amp; Crisis Lifeline)</span>
+    <span>&copy; 2026 [Practice Name] &nbsp;·&nbsp; All rights reserved</span>
+    <span>If you are in crisis, call or text <strong>988</strong></span>
   </div>
 </footer>
 
