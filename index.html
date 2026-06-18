@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Practice Name] — Mental Health Counseling</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #2c3e50;
+      --blue:    #4a7fa5;
+      --sky:     #7fb3d3;
+      --mist:    #ddeef6;
+      --pearl:   #f4f8fb;
+      --slate:   #5a6a7a;
+      --mid:     #8ea5b8;
+      --light:   #c9dde9;
+      --white:   #ffffff;
+      --radius:  8px;
+      --shadow:  0 2px 12px rgba(44,62,80,.10);
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--pearl);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--navy);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 64px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.18);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-brand {
+      color: var(--white);
+      font-size: 1.2rem;
+      font-weight: bold;
+      letter-spacing: .03em;
+      text-decoration: none;
+    }
+    .nav-brand span { color: var(--sky); }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: var(--light);
+      text-decoration: none;
+      font-family: 'Arial', sans-serif;
+      font-size: .92rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--sky); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 55%, var(--sky) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 6rem 2rem 5.5rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: normal;
+      letter-spacing: .02em;
+      margin-bottom: 1rem;
+      line-height: 1.25;
+    }
+    .hero p {
+      font-family: 'Arial', sans-serif;
+      font-size: 1.15rem;
+      opacity: .9;
+      max-width: 600px;
+      margin: 0 auto 2.2rem;
+      line-height: 1.7;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--white);
+      color: var(--blue);
+      font-family: 'Arial', sans-serif;
+      font-size: .95rem;
+      font-weight: bold;
+      padding: .8rem 2.4rem;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .btn:hover { background: var(--navy); color: var(--white); }
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--blue);
+      font-family: 'Arial', sans-serif;
+      font-size: .92rem;
+      font-weight: bold;
+      padding: .65rem 1.8rem;
+      border-radius: 30px;
+      border: 2px solid var(--blue);
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .btn-outline:hover { background: var(--blue); color: var(--white); }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .container-wide {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section { padding: 4rem 0; }
+    section + section { border-top: 1px solid var(--light); }
+
+    .section-label {
+      font-family: 'Arial', sans-serif;
+      font-size: .8rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: .5rem;
+    }
+    h2 {
+      font-size: 1.9rem;
+      font-weight: normal;
+      color: var(--navy);
+      margin-bottom: .6rem;
+      line-height: 1.3;
+    }
+    .section-intro {
+      font-family: 'Arial', sans-serif;
+      font-size: .97rem;
+      color: var(--slate);
+      max-width: 620px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── HOW WE CAN HELP — 3-col card grid ── */
+    .help-section { background: var(--white); }
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+    .help-card {
+      background: var(--pearl);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.8rem 1.6rem;
+      border-top: 4px solid var(--sky);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .help-card:hover {
+      box-shadow: 0 6px 20px rgba(44,62,80,.14);
+      transform: translateY(-2px);
+    }
+    .help-icon {
+      font-size: 2rem;
+      margin-bottom: .9rem;
+      display: block;
+    }
+    .help-card h3 {
+      font-size: 1.05rem;
+      color: var(--blue);
+      margin-bottom: .5rem;
+    }
+    .help-card p {
+      font-family: 'Arial', sans-serif;
+      font-size: .88rem;
+      color: var(--slate);
+      line-height: 1.65;
+    }
+
+    /* ── YOUR FIRST STEP — 3-step process ── */
+    .steps-section { background: var(--pearl); }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      align-items: start;
+      gap: 0;
+    }
+    .step {
+      text-align: center;
+      padding: 0 1.2rem;
+    }
+    .step-number {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      color: var(--white);
+      font-family: 'Arial', sans-serif;
+      font-size: 1.3rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+    .step h3 {
+      font-size: 1.05rem;
+      color: var(--navy);
+      margin-bottom: .45rem;
+    }
+    .step p {
+      font-family: 'Arial', sans-serif;
+      font-size: .88rem;
+      color: var(--slate);
+      line-height: 1.65;
+    }
+    .step-arrow {
+      color: var(--sky);
+      font-size: 1.8rem;
+      padding-top: 1rem;
+      align-self: flex-start;
+      margin-top: .6rem;
+    }
+
+    /* ── ABOUT YOUR COUNSELOR ── */
+    .about-section { background: var(--white); }
+    .bio-card {
+      background: var(--pearl);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem 2.2rem;
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .bio-avatar {
+      flex-shrink: 0;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: var(--mist);
+      border: 3px solid var(--sky);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--mid);
+      font-size: .78rem;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      line-height: 1.4;
+      overflow: hidden;
+    }
+    .bio-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    .bio-body p {
+      font-family: 'Arial', sans-serif;
+      font-size: .97rem;
+      color: var(--slate);
+      margin-bottom: .8rem;
+    }
+    .credential-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .8rem; }
+    .tag {
+      background: var(--mist);
+      color: var(--blue);
+      font-family: 'Arial', sans-serif;
+      font-size: .8rem;
+      padding: .25rem .75rem;
+      border-radius: 20px;
+      border: 1px solid var(--light);
+    }
+    .bio-actions { margin-top: 1.2rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: var(--light);
+      text-align: center;
+      padding: 2.8rem 2rem;
+      margin-top: 1rem;
+    }
+    .footer-brand {
+      font-size: 1.25rem;
+      color: var(--white);
+      margin-bottom: .3rem;
+    }
+    .footer-tagline {
+      font-family: 'Arial', sans-serif;
+      font-size: .88rem;
+      color: var(--mid);
+      margin-bottom: 1.6rem;
+    }
+    .footer-details {
+      font-family: 'Arial', sans-serif;
+      font-size: .9rem;
+      line-height: 2;
+      color: var(--light);
+    }
+    .footer-details a { color: var(--sky); text-decoration: none; }
+    .footer-details a:hover { text-decoration: underline; }
+    .footer-sep {
+      border: none;
+      border-top: 1px solid var(--slate);
+      margin: 1.6rem auto;
+      max-width: 400px;
+    }
+    .footer-copy {
+      font-family: 'Arial', sans-serif;
+      font-size: .78rem;
+      color: var(--mid);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 780px) {
+      .hero h1 { font-size: 2.2rem; }
+      .help-grid { grid-template-columns: 1fr 1fr; }
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .step-arrow { display: none; }
+      .bio-card { flex-direction: column; align-items: center; text-align: center; }
+      .credential-tags { justify-content: center; }
+    }
+    @media (max-width: 560px) {
+      .nav-links { gap: 1rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .help-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════ NAV ════════════ -->
+<nav>
+  <a href="index.html" class="nav-brand">[<span>Practice Name</span>]</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="forms.html">Forms</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ════════════ HERO ════════════ -->
+<section class="hero">
+  <h1>A Safe Space to<br/>Heal &amp; Grow</h1>
+  <p>
+    Compassionate, evidence-based mental health counseling — tailored to you.
+    Whether you're navigating anxiety, grief, life changes, or simply seeking
+    greater well-being, you don't have to walk this path alone.
+  </p>
+  <a href="contact.html" class="btn">Get Started</a>
+</section>
+
+<!-- ════════════ HOW WE CAN HELP ════════════ -->
+<section class="help-section">
+  <div class="container-wide">
+    <div class="section-label">Areas of Support</div>
+    <h2>How We Can Help</h2>
+    <p class="section-intro">
+      [Brief intro sentence — e.g., "Every person's journey is unique. Below are some of the
+      areas where counseling can make a meaningful difference."]
+    </p>
+    <div class="help-grid">
+
+      <div class="help-card">
+        <span class="help-icon">&#128161;</span>
+        <h3>Anxiety &amp; Stress</h3>
+        <p>
+          [Placeholder — e.g., "Learn practical tools to quiet an overactive mind, manage worry,
+          and reclaim a sense of calm in your daily life."]
+        </p>
+      </div>
+
+      <div class="help-card">
+        <span class="help-icon">&#127774;</span>
+        <h3>Depression</h3>
+        <p>
+          [Placeholder — e.g., "Find renewed energy and hope through a collaborative, compassionate
+          approach that addresses the root causes of low mood and disconnection."]
+        </p>
+      </div>
+
+      <div class="help-card">
+        <span class="help-icon">&#127758;</span>
+        <h3>Life Transitions</h3>
+        <p>
+          [Placeholder — e.g., "Career changes, moves, relationship shifts, or major milestones —
+          counseling can help you navigate uncertainty with clarity and resilience."]
+        </p>
+      </div>
+
+      <div class="help-card">
+        <span class="help-icon">&#129293;</span>
+        <h3>Grief &amp; Loss</h3>
+        <p>
+          [Placeholder — e.g., "Grief is not a problem to be solved, but a process to be honored.
+          We provide a gentle, supportive space to mourn and begin to heal."]
+        </p>
+      </div>
+
+      <div class="help-card">
+        <span class="help-icon">&#129309;</span>
+        <h3>Relationship Challenges</h3>
+        <p>
+          [Placeholder — e.g., "Whether navigating conflict, communication breakdowns, or
+          loneliness, counseling can help you build more fulfilling connections."]
+        </p>
+      </div>
+
+      <div class="help-card">
+        <span class="help-icon">&#128737;</span>
+        <h3>Trauma &amp; PTSD</h3>
+        <p>
+          [Placeholder — e.g., "Trauma-informed care helps you process difficult experiences
+          at your own pace, with safety and empowerment at the center of every session."]
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ YOUR FIRST STEP ════════════ -->
+<section class="steps-section">
+  <div class="container">
+    <div class="section-label">Getting Started</div>
+    <h2>Your First Step</h2>
+    <p class="section-intro">
+      [Placeholder — e.g., "Starting therapy can feel daunting, but the process is simple.
+      Here's what to expect when you reach out."]
+    </p>
+    <div class="steps-grid">
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Reach Out</h3>
+        <p>
+          [Placeholder — e.g., "Send a message or call us. There's no pressure — just a
+          warm, confidential conversation to see if we're a good fit."]
+        </p>
+      </div>
+
+      <div class="step-arrow">&#8250;</div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Schedule a Consultation</h3>
+        <p>
+          [Placeholder — e.g., "We'll find a time that works for you — in-person or via
+          secure telehealth — and answer any questions you have before your first session."]
+        </p>
+      </div>
+
+      <div class="step-arrow">&#8250;</div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Begin Your Journey</h3>
+        <p>
+          [Placeholder — e.g., "Together we'll set goals, explore what's holding you back,
+          and build a path forward — one session at a time, at your pace."]
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ ABOUT YOUR COUNSELOR ════════════ -->
+<section class="about-section">
+  <div class="container">
+    <div class="section-label">Meet Your Counselor</div>
+    <h2>About Your Counselor</h2>
+    <p class="section-intro">
+      [Placeholder — e.g., "You deserve a counselor who truly listens. Learn more about
+      the person you'll be working with."]
+    </p>
+    <div class="bio-card">
+      <div class="bio-avatar">
+        <!-- Replace src with actual headshot -->
+        Photo<br/>Placeholder
+      </div>
+      <div class="bio-body">
+        <h3>[Counselor Full Name], [Credentials — e.g., LPC, MA]</h3>
+        <p>
+          [Counselor Name] is a licensed mental health counselor with over [X] years of experience
+          supporting individuals through anxiety, depression, life transitions, grief, and relationship
+          challenges. They believe in creating a warm, non-judgmental space where clients feel heard
+          and empowered to grow.
+        </p>
+        <p>
+          [Add 1–2 sentences about personal philosophy or specialties, e.g.:
+          "Drawing on evidence-based practices, [Name] tailors each session to the individual,
+          honoring the whole person — mind, body, and spirit."]
+        </p>
+        <div class="credential-tags">
+          <span class="tag">Licensed Professional Counselor</span>
+          <span class="tag">[State] Licensed</span>
+          <span class="tag">[Specialty — e.g., Trauma-Informed]</span>
+          <span class="tag">[Specialty — e.g., Anxiety &amp; Depression]</span>
+          <span class="tag">[Credential Placeholder]</span>
+        </div>
+        <div class="bio-actions">
+          <a href="about.html" class="btn-outline">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer>
+  <div class="footer-brand">[Practice Name]</div>
+  <div class="footer-tagline">Mental Health Counseling</div>
+
+  <div class="footer-details">
+    <div>&#128205; [Street Address], [City, State ZIP]</div>
+    <div>&#128222; Phone: <a href="tel:+10000000000">(000) 000-0000</a></div>
+    <div>&#128224; Fax: (000) 000-0001</div>
+    <div>&#9993; <a href="mailto:hello@[practicedomain].com">hello@[practicedomain].com</a></div>
+  </div>
+
+  <hr class="footer-sep" />
+  <div class="footer-copy">
+    &copy; 2026 [Practice Name]. All rights reserved.
+    &nbsp;|&nbsp; <a href="privacy.html" style="color:var(--mid);">Privacy Policy</a>
+  </div>
+</footer>
+
+</body>
+</html>
