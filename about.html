@@ -130,21 +130,14 @@
       border-radius: var(--radius-lg);
       padding: 2rem;
       display: grid;
-      grid-template-columns: 100px 1fr;
-      gap: 1.5rem;
+      grid-template-columns: 260px 1fr;
+      gap: 2rem;
       align-items: start;
     }
     .bio-avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: var(--iris-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--iris-mid);
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
       flex-shrink: 0;
     }
     .bio-name  { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
@@ -329,14 +322,13 @@
 <!-- BIO + ORIENTATION -->
 <div class="section" style="padding-top: 1.5rem;">
   <div class="bio-block">
-    <div class="bio-avatar">[IN]</div>
+    <div class="bio-avatar"><img src="therapist-photo.jpg" alt="Therapist photo" style="width:100%;height:auto;display:block;border-radius:var(--radius-md);" /></div>
     <div>
       <div class="bio-name">[Counselor Full Name, Credentials]</div>
       <div class="bio-cred">[License Type] · [Cert]</div>
       <div class="bio-title">Individual therapy for adults · Telehealth &amp; in-person</div>
       <div class="bio-body">
-        <p>[Paragraph one placeholder — describe your background, how many years of experience you have, the populations you work with, and what drew you to this field.]</p>
-        <p>[Paragraph two placeholder — share your philosophy of care and how you approach the therapeutic relationship.]</p>
+        <p>[One concise paragraph about your background, experience, and who you work with.]</p>
       </div>
       <div class="bio-tags">
         <span class="bio-tag">[Specialty 1]</span>
@@ -391,23 +383,15 @@
   <ul class="edu-list">
     <li class="edu-row">
       <i class="ti ti-school"></i>
-      <div><strong>[Degree — e.g., Master of Arts in Counseling Psychology]</strong>[University Name Placeholder] · [Year]</div>
+      <div><strong>Bachelor of Science in Psychology</strong>University of Georgia · 2020</div>
     </li>
     <li class="edu-row">
       <i class="ti ti-school"></i>
-      <div><strong>[Degree — e.g., Bachelor of Science in Psychology]</strong>[University Name Placeholder] · [Year]</div>
+      <div><strong>Master of Science</strong>Brenau University · 2022</div>
     </li>
     <li class="edu-row">
       <i class="ti ti-license"></i>
-      <div><strong>[Licensure — e.g., Licensed Professional Counselor (LPC), [State]]</strong>License # [000000] · Expires [MM/YYYY]</div>
-    </li>
-    <li class="edu-row">
-      <i class="ti ti-certificate"></i>
-      <div><strong>[Certification — e.g., EMDR Basic Training]</strong>[Certifying Body Placeholder] · [Year]</div>
-    </li>
-    <li class="edu-row">
-      <i class="ti ti-certificate"></i>
-      <div><strong>[Certification or Continuing Education Placeholder]</strong>[Sponsor or Institution Placeholder] · [Year]</div>
+      <div><strong>Licensed in Georgia</strong>State of Georgia</div>
     </li>
   </ul>
 </div>
