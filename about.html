@@ -207,24 +207,34 @@
     .edu-row i { color: var(--iris); font-size: 16px; flex-shrink: 0; margin-top: 2px; }
     .edu-row strong { display: block; color: var(--text); font-weight: 600; }
 
-    /* ── CTA BAR ── */
-    .cta-bar {
+    /* ── CTA BLOCK ── */
+    .cta-section { padding: 4rem 2rem; }
+    .cta-block {
       background: var(--iris-mid);
-      color: #ffffff;
-      padding: 3.5rem 2rem;
+      border-radius: var(--radius-lg);
       text-align: center;
+      padding: 3rem 2rem;
+      max-width: 860px;
+      margin: 0 auto;
     }
-    .cta-bar h2 {
-      font-size: clamp(20px, 4vw, 30px);
+    .cta-block h2 {
+      font-size: clamp(22px, 4vw, 32px);
       font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
+      color: #ffffff;
+      margin-bottom: 0.65rem;
+      letter-spacing: -0.015em;
     }
-    .cta-bar p {
+    .cta-block p {
       font-size: 16px;
-      opacity: 0.85;
-      margin-bottom: 1.5rem;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 1.75rem;
+      line-height: 1.65;
     }
+    .cta-block .btn-primary {
+      background: #ffffff;
+      color: var(--iris-mid);
+    }
+    .cta-block .btn-primary:hover { background: var(--iris-light); }
     .btn-primary {
       display: inline-block;
       text-decoration: none;
@@ -371,6 +381,14 @@
       <div class="value-title">Practical + reflective</div>
       <div class="value-body">[Placeholder — describe how you balance insight and action.]</div>
     </div>
+    <div class="value-card">
+      <div class="value-title">[Value title]</div>
+      <div class="value-body">[Placeholder — describe this practice value.]</div>
+    </div>
+    <div class="value-card">
+      <div class="value-title">[Value title]</div>
+      <div class="value-body">[Placeholder — describe this practice value.]</div>
+    </div>
   </div>
 </div>
 
@@ -404,11 +422,13 @@
   </ul>
 </div>
 
-<!-- CTA BAR -->
-<div class="cta-bar">
-  <h2>Ready to take the first step?</h2>
-  <p>Reaching out takes courage. A brief consultation is free and there is no obligation.</p>
-  <a href="contact.html" class="btn-primary">Get started</a>
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-block">
+    <h2>Ready to take the first step?</h2>
+    <p>Reaching out takes courage. A brief consultation is free and there is no obligation.</p>
+    <a href="contact.html" class="btn-primary">Get started</a>
+  </div>
 </div>
 
 <!-- FOOTER -->
