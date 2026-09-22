@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interum — About</title>
+  <title>Iterum — About</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -154,6 +154,48 @@
       font-weight: 500;
       padding: 4px 10px;
       border-radius: 99px;
+    }
+
+    /* ── LANGUAGE TOGGLE ── */
+    .lang-toggle { display: flex; gap: 6px; margin-bottom: 1rem; }
+    .lang-btn {
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 14px;
+      cursor: pointer;
+      color: var(--text-soft);
+      transition: all 0.15s;
+    }
+    .lang-btn.active {
+      background: var(--iris-mid);
+      border-color: var(--iris-mid);
+      color: #fff;
+    }
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
+
+    /* ── WHAT DOES ITERUM MEAN ── */
+    .meaning-block {
+      background: var(--iris-light);
+      border: 0.5px solid rgba(74,127,229,0.25);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-top: 1.5rem;
+    }
+    .meaning-block h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--iris-mid);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    .meaning-block p {
+      font-size: 14px;
+      color: var(--text-soft);
+      line-height: 1.75;
     }
 
     /* ── ORIENTATION BLOCK ── */
@@ -314,7 +356,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo">Interum</a>
+  <a href="index.html" class="nav-logo">Iterum</a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html" class="active">About</a></li>
@@ -339,22 +381,43 @@
       <div class="bio-cred">[License Type] · [Cert]</div>
       <div class="bio-title">Individual therapy for adults · Telehealth &amp; in-person</div>
       <div class="bio-body">
-        <p>[One concise paragraph about your background, experience, and who you work with.]</p>
+        <div class="lang-toggle">
+          <button class="lang-btn active" onclick="switchLang('en')">English</button>
+          <button class="lang-btn" onclick="switchLang('es')">Español</button>
+        </div>
+        <div id="bio-en" class="lang-content active">
+          <p>Hey! Welcome to my page. I could spend the next few paragraphs telling you how wonderful I am, but I promise I'll try to keep the self-promotion to a minimum.</p>
+          <p>If you're here, there's probably a part of you that wants something to change. Maybe you're feeling stuck, overwhelmed, anxious, frustrated, or simply tired of dealing with the same problems over and over again. You may even know exactly what you should be doing, but knowing what to do and actually doing it are, unfortunately, two very different skill sets. Trust me, I think we can all relate to that.</p>
+          <p>My goal is to help you experience genuine optimism for your future, ideally starting from our very first meeting. Therapy should be a place where you can be honest about what's going on without feeling judged or like you need to have everything figured out. You don't need the perfect words, either. "I don't know" is a perfectly acceptable place to start.</p>
+          <p>I work best with people who genuinely want to get better but feel stuck using the same strategies that aren't working anymore. Sometimes our coping skills start creating more problems than they solve — we avoid, overthink, criticize ourselves, or try to control things that simply can't be controlled. The brain is a funny thing; it can be incredibly intelligent and still convince you that worrying about something for three hours is somehow productive. Together, we'll figure out what's keeping you stuck and develop strategies that actually help.</p>
+          <p>My approach is rooted in Acceptance and Commitment Therapy (ACT), which means therapy is less about me simply nodding along while you tell me what's going on and more about actually doing something with it. We'll look at the patterns that keep showing up, figure out what's driving them, and practice new ways of responding. Sometimes that means challenging the way you think, sometimes it means changing what you do, and sometimes it means learning to stop fighting battles that were never yours to win in the first place.</p>
+          <p>Most importantly, I want therapy to help you feel more capable of handling your life — not more dependent on therapy. The goal is to help you regain the confidence, power, and sense of control that you deserve.</p>
+          <p>You don't have to have your entire life figured out before you start. You just have to be willing to take the first step. We'll find the next ones together.</p>
+        </div>
+        <div id="bio-es" class="lang-content">
+          <p>¡Hola! Bienvenido/a a mi perfil. Podría pasar los próximos párrafos diciéndote lo maravilloso que soy, pero prometo tratar de mantener la autopromoción al mínimo.</p>
+          <p>Si estás aquí, probablemente hay una parte de ti que quiere que algo cambie. Tal vez te sientes estancado/a, abrumado/a, ansioso/a, frustrado/a, o simplemente cansado/a de lidiar con los mismos problemas una y otra vez. Incluso puede que sepas exactamente lo que deberías estar haciendo, pero saber qué hacer y realmente hacerlo son, desafortunadamente, dos habilidades muy diferentes. Créeme, creo que todos podemos identificarnos con eso.</p>
+          <p>Mi objetivo es ayudarte a recuperar un sentido genuino de optimismo respecto a tu futuro, idealmente desde nuestra primera sesión. La terapia debe ser un espacio donde puedas ser honesto/a sobre lo que está pasando sin sentirte juzgado/a ni pensar que tienes que tener todo resuelto. Tampoco necesitas tener las palabras perfectas. "No sé" es un lugar perfectamente válido para comenzar.</p>
+          <p>Trabajo especialmente bien con personas que realmente quieren mejorar, pero sienten que están atrapadas utilizando las mismas estrategias que ya no están funcionando. A veces, nuestras formas de afrontar las cosas terminan creando más problemas de los que resuelven: evitamos, pensamos demasiado, nos criticamos o intentamos controlar cosas que simplemente no podemos controlar. El cerebro es algo curioso; puede ser increíblemente inteligente y aun así convencernos de que preocuparnos durante tres horas por algo es, de alguna manera, productivo. Juntos vamos a identificar qué te está manteniendo estancado/a y desarrollar estrategias que realmente te ayuden.</p>
+          <p>Mi enfoque está basado en los principios de la Terapia de Aceptación y Compromiso (ACT). Esto significa que la terapia no se trata simplemente de que yo asienta mientras me cuentas lo que está pasando, sino de que hagamos algo con ello. Analizaremos los patrones que siguen apareciendo, entenderemos qué los está impulsando y practicaremos nuevas formas de responder. A veces eso significa cuestionar la manera en que piensas, otras veces significa cambiar lo que haces, y otras veces significa aprender a dejar de luchar batallas que, para empezar, nunca te correspondieron.</p>
+          <p>Sobre todo, quiero que la terapia te ayude a sentirte más capaz de manejar tu propia vida, no más dependiente de la terapia. El objetivo es ayudarte a recuperar la confianza, el poder y la sensación de control que mereces.</p>
+          <p>No tienes que tener toda tu vida resuelta antes de comenzar. Solo tienes que estar dispuesto/a a dar el primer paso. Juntos encontraremos los siguientes.</p>
+        </div>
       </div>
       <div class="bio-tags">
-        <span class="bio-tag">[Specialty 1]</span>
-        <span class="bio-tag">[Specialty 2]</span>
-        <span class="bio-tag">[Specialty 3]</span>
-        <span class="bio-tag">[Specialty 4]</span>
-        <span class="bio-tag">[Specialty 5]</span>
-        <span class="bio-tag">[Specialty 6]</span>
+        <span class="bio-tag">Anxiety</span>
+        <span class="bio-tag">Acceptance &amp; Commitment Therapy (ACT)</span>
+        <span class="bio-tag">Feeling Stuck</span>
+        <span class="bio-tag">Coping Skills</span>
+        <span class="bio-tag">Spanish-speaking</span>
+        <span class="bio-tag">Telehealth</span>
       </div>
     </div>
   </div>
 
   <div class="orientation-block">
-    <div class="orientation-title">Clinical orientation</div>
-    <div class="orientation-body">[Describe your theoretical approach in plain language here — for example, whether you draw on cognitive-behavioral, psychodynamic, humanistic, somatic, or integrative frameworks.]</div>
+    <div class="orientation-title">Clinical orientation — Acceptance &amp; Commitment Therapy (ACT)</div>
+    <div class="orientation-body">My approach is rooted in Acceptance and Commitment Therapy (ACT). Rather than simply talking through what's going on, ACT is action-oriented — we look at the patterns that keep showing up, understand what's driving them, and practice new ways of responding. That might mean challenging the way you think, changing what you do, or learning to stop fighting battles that were never yours to win. The goal isn't to eliminate difficult thoughts and feelings, but to change your relationship with them so they have less power over your choices.</div>
   </div>
 </div>
 
@@ -421,6 +484,10 @@
       <div><strong>[Certification or Continuing Education Placeholder]</strong>[Sponsor or Institution Placeholder] · [Year]</div>
     </li>
   </ul>
+  <div class="meaning-block">
+    <h3>What does "Iterum" mean?</h3>
+    <p>There's a reason I connect with the word <em>Iterum</em>, which means "again" or "anew." To me, it represents the idea that you don't have to stay stuck in the same patterns simply because that's the way things have always been. Growth is possible. Change is possible. And the work we do together is about helping you move forward — not by erasing who you are, but by helping you reconnect with who you want to be.</p>
+  </div>
 </div>
 
 <!-- CTA -->
@@ -436,8 +503,8 @@
 <footer>
   <div class="footer-inner">
     <div>
-      <div class="footer-brand">Interum</div>
-      <p class="footer-tagline">[Brief practice tagline placeholder — one sentence describing your mission or approach.]</p>
+      <div class="footer-brand">Iterum</div>
+      <p class="footer-tagline">Helping you move forward — again, anew, on your terms.</p>
     </div>
     <div>
       <p class="footer-heading">Contact</p>
@@ -458,10 +525,18 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>&copy; 2026 Interum. All rights reserved.</span>
+    <span>&copy; 2026 Iterum. All rights reserved.</span>
     <a href="privacy.html">Privacy Policy</a>
   </div>
 </footer>
 
+<script>
+  function switchLang(lang) {
+    document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('bio-' + lang).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
 </body>
 </html>
