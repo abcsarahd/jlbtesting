@@ -35,13 +35,12 @@
 
     /* ── NAV ── */
     nav {
-      background: #ffffff;
-      height: 64px;
+      background: #1B2B4B;
+      height: 72px;
       padding: 0 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 0.5px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -53,9 +52,10 @@
       flex-shrink: 0;
     }
     .nav-logo img {
-      height: 40px;
+      height: 52px;
       width: auto;
       display: block;
+      border-radius: 6px;
     }
     .nav-links {
       list-style: none;
@@ -66,7 +66,7 @@
     .nav-links a {
       display: inline-block;
       text-decoration: none;
-      color: var(--text-soft);
+      color: rgba(255,255,255,0.75);
       font-size: 14px;
       font-weight: 500;
       padding: 6px 12px;
@@ -76,16 +76,16 @@
     }
     .nav-links a:hover,
     .nav-links a.active {
-      background: var(--iris-light);
-      color: var(--iris-mid);
+      background: rgba(255,255,255,0.12);
+      color: #ffffff;
     }
     .nav-cta {
       display: inline-block;
       text-decoration: none;
-      background: var(--iris);
-      color: #fff;
+      background: #C9A96E;
+      color: #1B2B4B;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       padding: 8px 18px;
       border-radius: var(--radius-sm);
       margin-left: 0.75rem;
@@ -93,7 +93,7 @@
       white-space: nowrap;
       flex-shrink: 0;
     }
-    .nav-cta:hover { background: var(--iris-mid); }
+    .nav-cta:hover { background: #b8944f; }
 
     /* ── SECTION ── */
     .section {
