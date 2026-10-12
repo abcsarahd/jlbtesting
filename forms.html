@@ -24,6 +24,27 @@
       --radius-lg:   16px;
     }
 
+    /* ── LANGUAGE TOGGLE ── */
+    .lang-toggle { display: flex; gap: 6px; margin-bottom: 1.5rem; }
+    .lang-btn {
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 14px;
+      cursor: pointer;
+      color: var(--text-soft);
+      transition: all 0.15s;
+    }
+    .lang-btn.active {
+      background: var(--iris-mid);
+      border-color: var(--iris-mid);
+      color: #fff;
+    }
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
+
     body {
       font-family: system-ui, -apple-system, sans-serif;
       background: var(--surface);
@@ -242,101 +263,151 @@
 
 <!-- FORMS SECTION -->
 <div class="section">
-  <p class="section-label">Client resources</p>
-  <h1 class="section-title">Forms &amp; paperwork</h1>
-  <p class="section-intro">To make the most of your first appointment, please download and complete the relevant forms before you arrive. Completed paperwork helps us spend more time on what matters — your care. Links below open PDF files; printed copies are also available at the office.</p>
 
-  <hr class="divider" />
-
-  <!-- New client intake -->
-  <p class="form-group-title">New client intake</p>
-
-  <div class="form-row">
-    <div class="form-info">
-      <div class="form-name">New Client Intake Form</div>
-      <div class="form-meta">Complete before your first session · PDF, 4 pages</div>
-    </div>
-    <a href="#" class="form-dl"><i class="ti ti-download"></i> Download</a>
-  </div>
-  <div class="form-row">
-    <div class="form-info">
-      <div class="form-name">Informed Consent &amp; Practice Policies</div>
-      <div class="form-meta">Please read and sign · PDF, 3 pages</div>
-    </div>
-    <a href="#" class="form-dl"><i class="ti ti-download"></i> Download</a>
-  </div>
-  <div class="form-row">
-    <div class="form-info">
-      <div class="form-name">HIPAA Notice of Privacy Practices</div>
-      <div class="form-meta">Required by federal law · PDF, 2 pages</div>
-    </div>
-    <a href="#" class="form-dl"><i class="ti ti-download"></i> Download</a>
-  </div>
-  <div class="form-row">
-    <div class="form-info">
-      <div class="form-name">HIPAA Acknowledgment of Receipt</div>
-      <div class="form-meta">Sign and return · PDF, 1 page</div>
-    </div>
-    <a href="#" class="form-dl"><i class="ti ti-download"></i> Download</a>
-  </div>
-  <div class="form-row">
-    <div class="form-info">
-      <div class="form-name">Telehealth Consent Form</div>
-      <div class="form-meta">Required for virtual sessions only · PDF, 1 page</div>
-    </div>
-    <a href="#" class="form-dl"><i class="ti ti-download"></i> Download</a>
-  </div>
-  <div class="form-row">
-    <div class="form-info">
-      <div class="form-name">Good Faith Estimate</div>
-      <div class="form-meta">No Surprises Act · PDF, 1 page</div>
-    </div>
-    <a href="#" class="form-dl"><i class="ti ti-download"></i> Download</a>
+  <!-- Language toggle -->
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="switchFormsLang('en', event)">English</button>
+    <button class="lang-btn" onclick="switchFormsLang('es', event)">Español</button>
   </div>
 
-  <!-- Releases & records -->
-  <p class="form-group-title">Releases &amp; records</p>
+  <!-- ── ENGLISH ── -->
+  <div id="forms-en" class="lang-content active">
+    <p class="section-label">Client resources</p>
+    <h1 class="section-title">Forms &amp; paperwork</h1>
+    <p class="section-intro">To make the most of your first appointment, please download and complete the relevant forms before you arrive. Completed paperwork helps us spend more time on what matters — your care. Links below open PDF files.</p>
 
-  <div class="form-row">
-    <div class="form-info">
-      <div class="form-name">Release of Information — General</div>
-      <div class="form-meta">Share records with another provider · PDF, 1 page</div>
+    <hr class="divider" />
+
+    <p class="form-group-title">New client intake</p>
+
+    <div class="form-row">
+      <div class="form-info">
+        <div class="form-name">New Client Intake Form</div>
+        <div class="form-meta">Complete before your first session · PDF</div>
+      </div>
+      <a href="forms/intake-form.pdf" class="form-dl"><i class="ti ti-download"></i> Download</a>
     </div>
-    <a href="#" class="form-dl"><i class="ti ti-download"></i> Download</a>
-  </div>
-  <div class="form-row">
-    <div class="form-info">
-      <div class="form-name">Release of Information — Family/Support Person</div>
-      <div class="form-meta">PDF, 1 page</div>
+    <div class="form-row">
+      <div class="form-info">
+        <div class="form-name">Informed Consent &amp; Practice Policies</div>
+        <div class="form-meta">Please read and sign · PDF</div>
+      </div>
+      <a href="forms/informed-consent.pdf" class="form-dl"><i class="ti ti-download"></i> Download</a>
     </div>
-    <a href="#" class="form-dl"><i class="ti ti-download"></i> Download</a>
-  </div>
-  <div class="form-row">
-    <div class="form-info">
-      <div class="form-name">Medical Records Request</div>
-      <div class="form-meta">Request a copy of your records · PDF, 1 page</div>
+    <div class="form-row">
+      <div class="form-info">
+        <div class="form-name">HIPAA Notice of Privacy Practices</div>
+        <div class="form-meta">Required by federal law · PDF</div>
+      </div>
+      <a href="forms/hipaa-notice.pdf" class="form-dl"><i class="ti ti-download"></i> Download</a>
     </div>
-    <a href="#" class="form-dl"><i class="ti ti-download"></i> Download</a>
-  </div>
-  <div class="form-row">
-    <div class="form-info">
-      <div class="form-name">Parental Consent for Minor Client</div>
-      <div class="form-meta">PDF, 2 pages</div>
+    <div class="form-row">
+      <div class="form-info">
+        <div class="form-name">HIPAA Acknowledgment of Receipt</div>
+        <div class="form-meta">Sign and return · PDF</div>
+      </div>
+      <a href="forms/hipaa-acknowledgment.pdf" class="form-dl"><i class="ti ti-download"></i> Download</a>
     </div>
-    <a href="#" class="form-dl"><i class="ti ti-download"></i> Download</a>
-  </div>
-  <div class="form-row">
-    <div class="form-info">
-      <div class="form-name">Emergency Contact &amp; Safety Planning</div>
-      <div class="form-meta">Voluntary · updated annually · PDF, 1 page</div>
+    <div class="form-row">
+      <div class="form-info">
+        <div class="form-name">Telehealth Consent Form</div>
+        <div class="form-meta">Required for virtual sessions only · PDF</div>
+      </div>
+      <a href="forms/telehealth-consent.pdf" class="form-dl"><i class="ti ti-download"></i> Download</a>
     </div>
-    <a href="#" class="form-dl"><i class="ti ti-download"></i> Download</a>
+
+    <p class="form-group-title">Releases &amp; records</p>
+
+    <div class="form-row">
+      <div class="form-info">
+        <div class="form-name">Release of Information — General</div>
+        <div class="form-meta">Share records with another provider · PDF</div>
+      </div>
+      <a href="forms/release-of-information.pdf" class="form-dl"><i class="ti ti-download"></i> Download</a>
+    </div>
+    <div class="form-row">
+      <div class="form-info">
+        <div class="form-name">Medical Records Request</div>
+        <div class="form-meta">Request a copy of your records · PDF</div>
+      </div>
+      <a href="forms/medical-records-request.pdf" class="form-dl"><i class="ti ti-download"></i> Download</a>
+    </div>
+
+    <div class="orientation-block">
+      <p class="orientation-title">Questions about paperwork?</p>
+      <p class="orientation-body">If you are unsure which forms apply to your situation, please do not hesitate to reach out. We recommend completing your intake forms at least 24 hours before your first session so we can review them in advance.</p>
+    </div>
   </div>
 
-  <div class="orientation-block">
-    <p class="orientation-title">Questions about paperwork?</p>
-    <p class="orientation-body">If you are unsure which forms apply to your situation, please do not hesitate to reach out. A staff member will be happy to walk you through the process. We recommend completing your intake forms at least 24 hours before your first session so we can review them in advance.</p>
+  <!-- ── ESPAÑOL ── -->
+  <div id="forms-es" class="lang-content">
+    <p class="section-label">Recursos para clientes</p>
+    <h1 class="section-title">Formularios y documentación</h1>
+    <p class="section-intro">Para aprovechar al máximo tu primera cita, por favor descarga y completa los formularios correspondientes antes de tu llegada. Completar el papeleo con anticipación nos permite dedicar más tiempo a lo que importa: tu bienestar. Los enlaces a continuación abren archivos PDF.</p>
+
+    <hr class="divider" />
+
+    <p class="form-group-title">Nuevos clientes</p>
+
+    <div class="form-row">
+      <div class="form-info">
+        <div class="form-name">Formulario de inscripción para nuevos clientes</div>
+        <div class="form-meta">Completar antes de la primera sesión · PDF</div>
+      </div>
+      <a href="forms/intake-form-es.pdf" class="form-dl"><i class="ti ti-download"></i> Descargar</a>
+    </div>
+    <div class="form-row">
+      <div class="form-info">
+        <div class="form-name">Consentimiento informado y políticas de la práctica</div>
+        <div class="form-meta">Por favor lee y firma · PDF</div>
+      </div>
+      <a href="forms/informed-consent-es.pdf" class="form-dl"><i class="ti ti-download"></i> Descargar</a>
+    </div>
+    <div class="form-row">
+      <div class="form-info">
+        <div class="form-name">Aviso de prácticas de privacidad (HIPAA)</div>
+        <div class="form-meta">Requerido por ley federal · PDF</div>
+      </div>
+      <a href="forms/hipaa-notice-es.pdf" class="form-dl"><i class="ti ti-download"></i> Descargar</a>
+    </div>
+    <div class="form-row">
+      <div class="form-info">
+        <div class="form-name">Acuse de recibo HIPAA</div>
+        <div class="form-meta">Firmar y devolver · PDF</div>
+      </div>
+      <a href="forms/hipaa-acknowledgment-es.pdf" class="form-dl"><i class="ti ti-download"></i> Descargar</a>
+    </div>
+    <div class="form-row">
+      <div class="form-info">
+        <div class="form-name">Formulario de consentimiento para telesalud</div>
+        <div class="form-meta">Requerido solo para sesiones virtuales · PDF</div>
+      </div>
+      <a href="forms/telehealth-consent-es.pdf" class="form-dl"><i class="ti ti-download"></i> Descargar</a>
+    </div>
+
+    <p class="form-group-title">Autorizaciones y expedientes</p>
+
+    <div class="form-row">
+      <div class="form-info">
+        <div class="form-name">Autorización para divulgación de información — General</div>
+        <div class="form-meta">Compartir expediente con otro proveedor · PDF</div>
+      </div>
+      <a href="forms/release-of-information-es.pdf" class="form-dl"><i class="ti ti-download"></i> Descargar</a>
+    </div>
+    <div class="form-row">
+      <div class="form-info">
+        <div class="form-name">Solicitud de expediente médico</div>
+        <div class="form-meta">Solicitar una copia de tu expediente · PDF</div>
+      </div>
+      <a href="forms/medical-records-request-es.pdf" class="form-dl"><i class="ti ti-download"></i> Descargar</a>
+    </div>
+
+    <div class="orientation-block">
+      <p class="orientation-title">¿Tienes preguntas sobre el papeleo?</p>
+      <p class="orientation-body">Si no estás seguro/a de qué formularios aplican a tu situación, no dudes en comunicarte con nosotros. Te recomendamos completar los formularios de admisión al menos 24 horas antes de tu primera sesión para que podamos revisarlos con anticipación.</p>
+    </div>
   </div>
+
 </div>
 
 <!-- FOOTER -->
@@ -368,5 +439,13 @@
   </div>
 </footer>
 
+<script>
+  function switchFormsLang(lang, e) {
+    document.querySelectorAll('#forms-en, #forms-es').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('forms-' + lang).classList.add('active');
+    e.target.classList.add('active');
+  }
+</script>
 </body>
 </html>
