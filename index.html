@@ -33,10 +33,14 @@
     html { scrollbar-gutter: stable; }
 
     :root {
-      --iris:        #3A6BC0;
-      --iris-light:  #E0EAF8;
-      --iris-mid:    #1C4A9E;
-      --iris-dark:   #143685;
+      --iris:        #1B2B4B;
+      --iris-light:  #EEF0F5;
+      --iris-mid:    #1B2B4B;
+      --iris-dark:   #13203A;
+      --gold:        #C9A96E;
+      --gold-hover:  #b8944f;
+      --navy:        #1B2B4B;
+      --navy-hover:  #13203A;
       --sage:        #1D9E75;
       --sage-light:  #E1F5EE;
       --text:        #2C2C2A;
@@ -60,7 +64,8 @@
     nav {
       background: #1B2B4B;
       height: 72px;
-      padding: 0 2rem;
+      padding: 0 2rem 0 2rem;
+      padding-right: max(2rem, env(safe-area-inset-right, 1.5rem));
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -127,8 +132,8 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--iris-mid);
-      background: var(--iris-light);
+      color: var(--navy);
+      background: #EEF0F5;
       padding: 6px 18px;
       border-radius: 99px;
       margin-bottom: 1.5rem;
@@ -160,28 +165,28 @@
     .btn-primary {
       display: inline-block;
       text-decoration: none;
-      background: var(--iris);
-      color: #fff;
+      background: var(--gold);
+      color: var(--navy);
       font-size: 15px;
-      font-weight: 600;
+      font-weight: 700;
       padding: 11px 24px;
       border-radius: var(--radius-sm);
       transition: background 0.15s;
     }
-    .btn-primary:hover { background: var(--iris-mid); }
+    .btn-primary:hover { background: var(--gold-hover); }
     .btn-outline {
       display: inline-block;
       text-decoration: none;
       background: transparent;
-      color: var(--iris-mid);
+      color: var(--navy);
       font-size: 15px;
       font-weight: 600;
       padding: 10px 24px;
       border-radius: var(--radius-sm);
-      border: 1.5px solid var(--iris-mid);
-      transition: background 0.15s;
+      border: 1.5px solid var(--navy);
+      transition: background 0.15s, color 0.15s;
     }
-    .btn-outline:hover { background: var(--iris-light); }
+    .btn-outline:hover { background: #EEF0F5; }
 
     /* ── SECTION LAYOUT ── */
     .section {
@@ -289,10 +294,10 @@
       line-height: 1.65;
     }
     .cta-block .btn-primary {
-      background: #ffffff;
-      color: #1B2B4B;
+      background: var(--gold);
+      color: var(--navy);
     }
-    .cta-block .btn-primary:hover { background: var(--iris-light); }
+    .cta-block .btn-primary:hover { background: var(--gold-hover); }
 
     /* ── FOOTER ── */
     footer {
@@ -376,7 +381,7 @@
   <div class="hero-eyebrow">Mental Health Counseling</div>
   <h1>We're glad you're here.</h1>
   <p>Iterum is an independent, web-based mental health practice dedicated to helping individuals better understand themselves, navigate life's challenges, and move toward meaningful change.</p>
-  <p style="font-size:0.95rem;color:var(--text-hint);margin-bottom:0;margin-top:-0.75rem;">Take your time exploring our services. We're glad you've found your way here.</p>
+  <p style="font-size:0.95rem;color:var(--text-hint);margin-bottom:0;margin-top:-0.75rem;max-width:560px;margin-left:auto;margin-right:auto;">Take your time exploring our services. We're glad you've found your way here.</p>
   <div class="hero-actions">
     <a href="contact.html" class="btn-primary">Book a free consultation</a>
     <a href="about.html" class="btn-outline">Learn about our approach</a>
