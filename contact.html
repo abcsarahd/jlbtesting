@@ -88,6 +88,8 @@
       flex-shrink: 0;
     }
     .nav-cta:hover { background: #b8944f; }
+    [lang="es"] .nav-cta-en { display: none; }
+    [lang="es"] .nav-cta-es { display: inline; }
 
     /* ── HERO ── */
     .page-hero {
@@ -391,6 +393,27 @@
       .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
       .nav-links { display: none; }
     }
+
+    /* ── LANGUAGE TOGGLE ── */
+    .lang-toggle { display: flex; gap: 6px; margin-bottom: 1.5rem; }
+    .lang-btn {
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 14px;
+      cursor: pointer;
+      color: var(--text-soft);
+      transition: all 0.15s;
+    }
+    .lang-btn.active {
+      background: var(--iris-mid);
+      border-color: var(--iris-mid);
+      color: #fff;
+    }
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
   </style>
 </head>
 <body>
@@ -404,8 +427,19 @@
     <li><a href="forms.html">Forms</a></li>
     <li><a href="contact.html" class="active">Contact</a></li>
   </ul>
-  <a href="contact.html" class="nav-cta">Get started</a>
+  <a href="contact.html" class="nav-cta"><span class="nav-cta-en">Get started</span><span class="nav-cta-es" style="display:none">Comenzar</span></a>
 </nav>
+
+<!-- LANG TOGGLE -->
+<div style="max-width:860px;margin:0 auto;padding:1.5rem 2rem 0;">
+  <div class="lang-toggle">
+    <button class="lang-btn active" data-lang="en" onclick="switchLang('en', event)">English</button>
+    <button class="lang-btn" data-lang="es" onclick="switchLang('es', event)">Español</button>
+  </div>
+</div>
+
+<div id="page-en" class="lang-content active">
+
 
 <!-- HERO -->
 <div class="page-hero">
@@ -554,6 +588,195 @@
     <a href="privacy.html">Privacy Policy</a>
   </div>
 </footer>
+
+
+</div>
+
+<div id="page-es" class="lang-content">
+
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="hero-eyebrow">Contáctanos</div>
+  <h1>Escríbenos</h1>
+  <p>Nos encantaría saber de ti. Contáctanos para programar una consulta gratuita — sin ningún compromiso.</p>
+</div>
+
+<!-- CONTACT DETAILS + FORM -->
+<div class="section">
+  <div class="section-label">Contáctanos</div>
+  <div class="section-title">Conectemos</div>
+
+  <div class="contact-layout">
+
+    <!-- LEFT: Info -->
+    <div class="info-card">
+      <div class="info-card-title"><i class="ti ti-building"></i> Información de contacto</div>
+      <div class="info-row"><i class="ti ti-map-pin"></i><span>Telehealth en todo el estado · Georgia</span></div>
+      <div class="info-row"><i class="ti ti-phone"></i><a href="tel:+14708395509">(470) 839-5509</a></div>
+      <div class="info-row"><i class="ti ti-mail"></i><span><a href="mailto:jalbaraona@gmail.com">jalbaraona@gmail.com</a><span style="font-size:12px;color:var(--text-hint);margin-left:6px;">Email for inquiries</span></span></div>
+
+      <div class="response-note">
+        <i class="ti ti-clock" style="margin-right:4px;"></i> Buscamos responder a todas las consultas en un plazo de [1–2 días hábiles]. Si estás en crisis, llama o envía un mensaje de texto al <strong>988</strong> (Línea de Prevención del Suicidio y Crisis) o a tus servicios de emergencia locales.
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class="form-card">
+      <div class="form-card-title">Envíanos un mensaje</div>
+
+      <div class="form-group">
+        <label for="name">Tu nombre</label>
+        <input type="text" id="name" name="name" placeholder="Nombre y apellido" />
+      </div>
+      <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" />
+      </div>
+      <div class="form-group">
+        <label for="phone">Teléfono <span class="opt">(opcional)</span></label>
+        <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000" />
+      </div>
+      <div class="form-group">
+        <label for="referral">¿Cómo nos encontraste?</label>
+        <select id="referral" name="referral">
+          <option value="" disabled selected>Selecciona una opción…</option>
+          <option value="search">Búsqueda en internet</option>
+          <option value="psychology-today">Psychology Today</option>
+          <option value="referral">Referencia de médico / proveedor</option>
+          <option value="friend">Amigo/a o familiar</option>
+          <option value="social">Redes sociales</option>
+          <option value="other">Otro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">¿Qué te trae aquí?</label>
+        <textarea id="message" name="message" placeholder="Comparte lo que te sientas cómodo/a compartiendo — no es necesario entrar en detalles."></textarea>
+      </div>
+
+      <button type="button" class="btn-submit">Enviar mensaje</button>
+
+      <p class="privacy-note">
+        🔒 Tu información se mantiene confidencial. Este formulario no está cifrado — por favor no compartas información médica sensible aquí. Al enviar, aceptas nuestra <a href="privacy.html">Política de Privacidad</a>.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider" style="max-width: 860px; margin: 0 auto;" />
+
+<!-- FEES & PAYMENT -->
+<div class="section">
+  <div class="section-label">Inversión</div>
+  <div class="section-title">Tarifas y pago</div>
+  <div class="steps-row" style="align-items:flex-start;gap:24px;flex-wrap:wrap;">
+    <div class="step" style="flex:1;min-width:200px;">
+      <div class="step-num" style="background:var(--iris-light);color:var(--iris-mid);">$</div>
+      <h3>Tarifa por sesión</h3>
+      <p><strong>$120</strong> por sesión individual de 50 minutos.<br/>Hay escala móvil disponible — pregunta durante tu consulta gratuita.</p>
+    </div>
+    <div class="step" style="flex:1;min-width:200px;">
+      <div class="step-num" style="background:var(--iris-light);color:var(--iris-mid);font-size:14px;">OOP</div>
+      <h3>Solo pago directo</h3>
+      <p>Iterum actualmente es <strong>solo pago privado</strong> y no factura seguros. Un superbill (para posible reembolso fuera de la red) puede estar disponible bajo solicitud.</p>
+    </div>
+    <div class="step" style="flex:1;min-width:200px;">
+      <div class="step-num" style="background:var(--iris-light);color:var(--iris-mid);"><i class="ti ti-credit-card" style="font-size:20px;"></i></div>
+      <h3>Pagos aceptados</h3>
+      <p>Visa · Mastercard · AmEx · Discover · PayPal · Check · Cash</p>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT HAPPENS NEXT -->
+<div class="section">
+  <div class="section-label">Proceso</div>
+  <div class="section-title">¿Qué pasa después?</div>
+  <div class="steps-row">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Recibimos tu mensaje</h3>
+      <p>Tu consulta llega a nuestra bandeja de entrada y es revisada por nuestro equipo — generalmente el mismo día hábil.</p>
+    </div>
+    <div class="step-arrow"><i class="ti ti-arrow-right"></i></div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Nos comunicamos contigo</h3>
+      <p>Un miembro del equipo se comunicará contigo en [X] días hábiles para responder preguntas y hablar sobre disponibilidad.</p>
+    </div>
+    <div class="step-arrow"><i class="ti ti-arrow-right"></i></div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Agenda tu primera sesión</h3>
+      <p>Juntos encontraremos un horario que funcione para ti y agendaremos tu primera cita.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Iterum</div>
+      <p class="footer-tagline">Atención de salud mental compasiva para individuos, parejas y familias.</p>
+    </div>
+    <div>
+      <p class="footer-heading">Contacto</p>
+      <div class="footer-item"><i class="ti ti-map-pin"></i><span>Telehealth en todo el estado · Georgia</span></div>
+      <div class="footer-item"><i class="ti ti-phone"></i><a href="tel:+14708395509">(470) 839-5509</a></div>
+      <div class="footer-item"><i class="ti ti-mail"></i><a href="mailto:jalbaraona@gmail.com">jalbaraona@gmail.com</a></div>
+    </div>
+    <div>
+      <p class="footer-heading">Enlaces rápidos</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">Sobre nosotros</a></li>
+        <li><a href="forms.html">Formularios</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Iterum. Todos los derechos reservados.</span>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+</footer>
+
+
+</div>
+
+<script>
+  (function() {
+    var LANG_KEY = 'iterum-lang';
+    var DEFAULT_LANG = 'en';
+    function getLang() {
+      try { return localStorage.getItem(LANG_KEY) || DEFAULT_LANG; } catch(e) { return DEFAULT_LANG; }
+    }
+    function setLang(lang) {
+      try { localStorage.setItem(LANG_KEY, lang); } catch(e) {}
+    }
+    window.switchLang = function(lang, e) {
+      document.querySelectorAll('.lang-content').forEach(function(el) { el.classList.remove('active'); });
+      document.querySelectorAll('.lang-btn').forEach(function(el) { el.classList.remove('active'); });
+      var content = document.getElementById('page-' + lang);
+      if (content) content.classList.add('active');
+      if (e && e.target) e.target.classList.add('active');
+      document.documentElement.lang = lang;
+      setLang(lang);
+    };
+    // Apply stored language on page load
+    var saved = getLang();
+    document.addEventListener('DOMContentLoaded', function() {
+      if (saved !== DEFAULT_LANG) {
+        var btns = document.querySelectorAll('.lang-btn');
+        btns.forEach(function(btn) {
+          if (btn.getAttribute('data-lang') === saved) btn.click();
+        });
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>

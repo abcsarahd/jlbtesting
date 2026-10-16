@@ -109,6 +109,8 @@
       flex-shrink: 0;
     }
     .nav-cta:hover { background: #b8944f; }
+    [lang="es"] .nav-cta-en { display: none; }
+    [lang="es"] .nav-cta-es { display: inline; }
 
     /* ── SECTION ── */
     .section {
@@ -258,7 +260,7 @@
     <li><a href="forms.html" class="active">Forms</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="contact.html" class="nav-cta">Get started</a>
+  <a href="contact.html" class="nav-cta"><span class="nav-cta-en">Get started</span><span class="nav-cta-es" style="display:none">Comenzar</span></a>
 </nav>
 
 <!-- FORMS SECTION -->
@@ -266,12 +268,12 @@
 
   <!-- Language toggle -->
   <div class="lang-toggle">
-    <button class="lang-btn active" onclick="switchFormsLang('en', event)">English</button>
-    <button class="lang-btn" onclick="switchFormsLang('es', event)">Español</button>
+    <button class="lang-btn active" data-lang="en" onclick="switchLang('en', event)">English</button>
+    <button class="lang-btn" data-lang="es" onclick="switchLang('es', event)">Español</button>
   </div>
 
   <!-- ── ENGLISH ── -->
-  <div id="forms-en" class="lang-content active">
+  <div id="page-en" class="lang-content active">
     <p class="section-label">Client resources</p>
     <h1 class="section-title">Forms &amp; paperwork</h1>
     <p class="section-intro">Below are forms you may need during your care with Iterum. Links open PDF files you can download, complete, and return.</p>
@@ -314,7 +316,7 @@
   </div>
 
   <!-- ── ESPAÑOL ── -->
-  <div id="forms-es" class="lang-content">
+  <div id="page-es" class="lang-content">
     <p class="section-label">Recursos para clientes</p>
     <h1 class="section-title">Formularios y documentación</h1>
     <p class="section-intro">A continuación encontrarás los formularios que podrías necesitar durante tu atención con Iterum. Los enlaces abren archivos PDF que puedes descargar, completar y devolver.</p>
@@ -387,13 +389,38 @@
   </div>
 </footer>
 
+
 <script>
-  function switchFormsLang(lang, e) {
-    document.querySelectorAll('#forms-en, #forms-es').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
-    document.getElementById('forms-' + lang).classList.add('active');
-    e.target.classList.add('active');
-  }
+  (function() {
+    var LANG_KEY = 'iterum-lang';
+    var DEFAULT_LANG = 'en';
+    function getLang() {
+      try { return localStorage.getItem(LANG_KEY) || DEFAULT_LANG; } catch(e) { return DEFAULT_LANG; }
+    }
+    function setLang(lang) {
+      try { localStorage.setItem(LANG_KEY, lang); } catch(e) {}
+    }
+    window.switchLang = function(lang, e) {
+      document.querySelectorAll('.lang-content').forEach(function(el) { el.classList.remove('active'); });
+      document.querySelectorAll('.lang-btn').forEach(function(el) { el.classList.remove('active'); });
+      var content = document.getElementById('page-' + lang);
+      if (content) content.classList.add('active');
+      if (e && e.target) e.target.classList.add('active');
+      document.documentElement.lang = lang;
+      setLang(lang);
+    };
+    // Apply stored language on page load
+    var saved = getLang();
+    document.addEventListener('DOMContentLoaded', function() {
+      if (saved !== DEFAULT_LANG) {
+        var btns = document.querySelectorAll('.lang-btn');
+        btns.forEach(function(btn) {
+          if (btn.getAttribute('data-lang') === saved) btn.click();
+        });
+      }
+    });
+  })();
 </script>
+
 </body>
 </html>
