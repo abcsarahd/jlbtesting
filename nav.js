@@ -14,10 +14,16 @@
 
   window.switchLang = function (lang) {
     document.querySelectorAll('.lang-content').forEach(function (el) { el.classList.remove('active'); });
-    document.querySelectorAll('.lang-btn').forEach(function (el) { el.classList.remove('active'); });
+    document.querySelectorAll('.lang-btn').forEach(function (el) {
+      el.classList.remove('active');
+      el.setAttribute('aria-pressed', 'false');
+    });
     var content = document.getElementById('page-' + lang);
     if (content) content.classList.add('active');
-    document.querySelectorAll('.lang-btn[data-lang="' + lang + '"]').forEach(function (el) { el.classList.add('active'); });
+    document.querySelectorAll('.lang-btn[data-lang="' + lang + '"]').forEach(function (el) {
+      el.classList.add('active');
+      el.setAttribute('aria-pressed', 'true');
+    });
     document.documentElement.lang = lang;
     setLang(lang);
   };

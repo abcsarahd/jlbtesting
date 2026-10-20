@@ -401,10 +401,37 @@
     }
     .nav-hamburger:hover { background: rgba(255,255,255,0.1); color: #fff; }
 
-    @media (max-width: 640px) {
+    /* ── DESKTOP LANG TOGGLE ── */
+    .nav-lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin: 0 0.5rem;
+      flex-shrink: 0;
+    }
+    .nav-lang-toggle .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: rgba(255,255,255,0.5);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 3px;
+      letter-spacing: 0.03em;
+      line-height: 1;
+    }
+    .nav-lang-toggle .lang-btn.active {
+      color: #ffffff;
+      font-weight: 700;
+    }
+    .nav-lang-toggle .lang-btn:hover { color: rgba(255,255,255,0.85); }
+    .nav-lang-divider { color: rgba(255,255,255,0.2); font-size: 12px; line-height: 1; }
+
+    @media (max-width: 768px) {
       .nav-logo-full { display: none; }
       .nav-hamburger { display: inline-flex; }
       .nav-links { display: none; }
+      .nav-lang-toggle { display: none; }
       .nav-cta { font-size: 12px; padding: 7px 12px; margin-left: 0.25rem; }
     }
     /* ── NAV PANEL ── */
@@ -466,6 +493,11 @@
     <li><a href="forms.html">Forms</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
+  <div class="nav-lang-toggle" aria-label="Language">
+    <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true" aria-label="Switch to English" onclick="switchLang('en')">EN</button>
+    <span class="nav-lang-divider" aria-hidden="true">|</span>
+    <button type="button" class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Cambiar a español" onclick="switchLang('es')">ES</button>
+  </div>
   <div class="nav-right">
     <a href="contact.html" class="nav-cta"><span class="nav-cta-en">Book a consult</span><span class="nav-cta-es-lg">Reserva una consulta</span><span class="nav-cta-es-sm">Reservar</span></a>
     <button type="button" class="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel" onclick="toggleNav(this)">
